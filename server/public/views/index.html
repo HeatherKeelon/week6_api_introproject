@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/vendors/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/style.css">
+    <!-- Angular -->
+    <script type="text/javascript" src="/vendors/angular.min.js"></script>
+    <script type="text/javascript" src="/scripts/ang_app.js"></script>
+    <script type="text/javascript" src="/scripts/gameprofile.js"></script>
+</head>
+<body>
+    <h1>Game Search</h1>
+    <div ng-controller="APIController">
+
+        <div class="form-box">
+            <form>
+                <label for="name">Game Name: </label>
+                <input ng-model="query" type="text" name="name" id="name">
+            </form>
+            <button ng-click="findGame(query)" class="btn btn-info submit">Submit</button>
+        </div>
+
+        <div class="games-area" ng-repeat="game in games | filter:game">
+            <game-profile info="game"></game-profile>
+        </div>
+
+    </div>
+</body>
+</html>
