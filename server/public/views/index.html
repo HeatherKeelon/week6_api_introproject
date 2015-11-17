@@ -16,13 +16,13 @@
 
         <div class="form-box">
             <form>
-                <label for="name">Game Name: </label>
+                <label for="name">Game Name (results limited to 20): </label>
                 <input ng-model="query" type="text" name="name" id="name">
             </form>
             <button ng-click="findGame(query)" class="btn btn-info submit">Submit</button>
         </div>
 
-        <div class="games-area" ng-repeat="game in games | filter:game">
+        <div class="games-area" ng-repeat="game in games | filter:game | limitTo: 20">
             <game-profile info="game"></game-profile>
         </div>
 
